@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   vector.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbillon <tbillon@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tbillon <tbillon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 08:48:59 by tbillon           #+#    #+#             */
-/*   Updated: 2022/05/09 08:16:56 by tbillon          ###   ########.fr       */
+/*   Updated: 2022/05/23 14:18:47 by tbillon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
+
+
+
 
 #include <cstddef> // size_t, ptrdiff 
 #include <memory> // std::allocator
@@ -84,12 +87,19 @@ namespace ft
 
         /****************************** DESTRUCTOR ***************************/
             virtual ~vector(){
-                if (this->_ptrVec)
+
+                for (size_t i = 0; i < _size; i++)
                 {
-                    for (size_type i = _size; i < _size; i++)
-                        delete(&_ptrVec[i]);
+                   _allocator.destroy(_ptrVec + i);
                 }
-                this->clear();
+                _allocator.deallocate(_ptrVec, _capacity);
+
+                // if (this->_ptrVec)
+                // {
+                //     for (size_type i = _size; i < _size; i++)
+                //         delete(&_ptrVec[i]);
+                // }
+                // this->clear();
             }
 
         /***************************** OPERATOR = ****************************/
