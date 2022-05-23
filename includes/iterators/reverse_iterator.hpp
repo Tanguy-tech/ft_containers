@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_iterator.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tbillon <tbillon@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: tbillon <tbillon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 13:07:19 by tbillon           #+#    #+#             */
-/*   Updated: 2022/04/27 08:26:11 by tbillon          ###   ########.fr       */
+/*   Updated: 2022/05/23 15:05:00 by tbillon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef REVERSE_ITERATOR_HPP
 #define REVERSE_ITERATOR_HPP
+
 
 #include "iterator_traits.hpp"
 
@@ -20,6 +21,7 @@ namespace ft
     template< class Iterator >
     class reverse_iterator
     {
+        
         public:
             typedef Iterator                                    iterator_type;
             typedef typename Iterator::iterator_category        iterator_category;
